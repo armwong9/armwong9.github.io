@@ -62,7 +62,7 @@ const About = ({ experiences, education }: AboutProps): JSX.Element => (
       <Container maxWidth={["100%", "700px"]} marginY="1rem">
         <Text>
           Arm&apos;s research interests are at the intersection between statistical learning and signal processing, 
-          focusing on applications in high frequency sequential data, including music, speech and financial data, 
+          focusing on applications for high frequency sequential data, including music, speech and financial data, 
           with a heavy emphasis placed on intepretability and explainability of methods. 
 
           He also enjoys thinking about the data science education, with a firm belief that the curriculum should 
