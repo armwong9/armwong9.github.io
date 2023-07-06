@@ -6,15 +6,11 @@ module.exports = {
       if (!isServer) {
         config.resolve.fallback.fs = false;
       }
-  
       config.module.rules.push({
         test: /\.md|\.mdx$/,
         use: "raw-loader",
       });
   
       return config;
-    },
-    images: {
-      domains: ["nextjs.org"],
     },
   };
