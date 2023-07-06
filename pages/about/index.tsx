@@ -66,7 +66,7 @@ const About = ({ experiences, education }: AboutProps): JSX.Element => (
           with a heavy emphasis placed on intepretability and explainability of methods. 
 
           He also enjoys thinking about the data science education, with a firm belief that the curriculum should 
-          align with societal betterment incentives and reflect the interdisiplinary nature of the field, 
+          provide tools which align with societal betterment incentives and reflect the interdisiplinary nature of the field, 
           beyond a simple <code>lm.fit()</code>, or a <code>torch.nn</code>. 
 
         </Text>
