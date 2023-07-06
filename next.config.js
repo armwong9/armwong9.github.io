@@ -1,7 +1,7 @@
 module.exports = {
     images: {
-      domains: ["rdl.ink"],
-    },
+        unoptimized: true
+      },
     webpack: (config, { isServer }) => {
       if (!isServer) {
         config.resolve.fallback.fs = false;
@@ -18,4 +18,3 @@ module.exports = {
       domains: ["nextjs.org"],
     },
   };
-  
