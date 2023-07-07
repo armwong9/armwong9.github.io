@@ -23,6 +23,7 @@ const customizedMapPageUrl = (rootPageId?: string) => (pageId: string) => {
   return `/projects/${pageId}`;
 };
 
+
 const Projects: NextPage<ProjectsProps> = ({ projectsRecordMap }) => (
   <Container width="100%" marginBottom={["1rem", "4rem"]}>
     <Head>
@@ -42,10 +43,7 @@ const Projects: NextPage<ProjectsProps> = ({ projectsRecordMap }) => (
           width,
           className,
           style,
-          loading,
-          decoding,
           ref,
-          onLoad,
         }: {
           src: string;
           alt: string;
@@ -75,7 +73,7 @@ const Projects: NextPage<ProjectsProps> = ({ projectsRecordMap }) => (
         collectionRow: CollectionRow,
         code: Code,
         modal: Modal,
-        equation: Equation,
+        equation: Equation
       }}
     />
   </Container>
@@ -97,5 +95,6 @@ export const getStaticProps = async (): Promise<
     revalidate: 60,
   };
 };
+
 
 export default Projects;

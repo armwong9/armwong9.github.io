@@ -26,16 +26,17 @@ interface ProjectsProps {
 }
 
 const Projects: NextPage<ProjectsProps> = ({ projectsRecordMap }) => {
+  console.log(projectsRecordMap);
   const customizedMapPageUrl = (rootPageId?: string) => (pageId: string) => {
     pageId = (pageId || "").replace(/-/g, "");
-    return `/blog/${pageId}`;
+    return `/project/${pageId}`;
   };
 
   return (
     <Container width="100%" marginBottom={["1rem", "4rem"]}>
       <Head>
-        <title>Blog</title>
-        <meta property="og:title" content="Blog" />
+        <title>Projects</title>
+        <meta property="og:title" content="Project" />
       </Head>
       <NotionRenderer
         fullPage
@@ -52,11 +53,7 @@ const Projects: NextPage<ProjectsProps> = ({ projectsRecordMap }) => {
 
             className,
             style,
-            loading,
-            decoding,
-
             ref,
-            onLoad,
           }: {
             src: string;
             alt: string;
