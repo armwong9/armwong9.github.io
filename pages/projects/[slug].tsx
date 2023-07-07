@@ -97,7 +97,7 @@ const notion = new NotionAPI();
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const pages = await getAllPagesInSpace(
-    "67362327fed647e1b7e4f8915a97dde3",
+    "Projects-d63333fedaa94636983ce971882910fe",
     undefined,
     notion.getPage.bind(notion),
     {
