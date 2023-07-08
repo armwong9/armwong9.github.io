@@ -1,6 +1,6 @@
-## Arm's Website
+## Personal Website
 
-Hi! Check out my website https://armwonghirun.vercel.app built with 
+Hi! Check out https://armwonghirun.vercel.app built with 
 - Next.js (https://nextjs.org/)
 - React (https://react.dev)
 - react-notion-x API (https://github.com/NotionX/react-notion-x)
