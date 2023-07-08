@@ -10,23 +10,26 @@ import Image from "next/image";
 import Container from "@components/Container";
 
 import { NotionAPI } from "notion-client";
-import {
-  NotionRenderer,
-  NotionRendererProps,
-  Code,
-  Collection,
-  CollectionRow,
-  Equation,
-  Modal,
-} from "react-notion-x";
+import { NotionRenderer } from "react-notion-x";
+
+import { Code } from 'react-notion-x/build/third-party/code';
+import { Collection } from 'react-notion-x/build/third-party/collection';
+import { Equation } from 'react-notion-x/build/third-party/equation';
+import { Modal } from 'react-notion-x/build/third-party/modal';
+import { ExtendedRecordMap } from 'notion-types';
 import { getAllPagesInSpace } from "notion-utils";
 
 interface ProjectsProps {
-  projectsRecordMap: NotionRendererProps["recordMap"];
+  projectsRecordMap: ExtendedRecordMap;
 }
 
 const Projects: NextPage<ProjectsProps> = ({ projectsRecordMap }) => {
   console.log(projectsRecordMap);
+
+  if (!projectsRecordMap) {
+    return <div>Loading...</div>;
+  }
+
   const customizedMapPageUrl = (rootPageId?: string) => (pageId: string) => {
     pageId = (pageId || "").replace(/-/g, "");
     return `/project/${pageId}`;
@@ -40,59 +43,24 @@ const Projects: NextPage<ProjectsProps> = ({ projectsRecordMap }) => {
       </Head>
       <NotionRenderer
         fullPage
-        className="notion-container"
         recordMap={projectsRecordMap}
         mapPageUrl={customizedMapPageUrl()}
         components={{
-          image: ({
-            src,
-            alt,
-
-            height,
-            width,
-
-            className,
-            style,
-            ref,
-          }: {
-            src: string;
-            alt: string;
-            height: number;
-            width: number;
-            className: string;
-            style: CSSProperties;
-            loading: string;
-            decoding: string;
-            ref: string;
-            onLoad: SyntheticEvent;
-          }) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              className={className}
-              style={style}
-              src={src}
-              ref={ref}
-              width={width}
-              height={height}
-              loading="lazy"
-              alt={alt}
-              decoding="async"
-            />
-          ),
-          collection: Collection,
-          collectionRow: CollectionRow,
-          code: Code,
-          modal: Modal,
-          equation: Equation,
+          Code,
+          Collection,
+          Equation,
+          Modal
         }}
       />
     </Container>
   );
 };
 
+
 const notion = new NotionAPI();
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  
   const pages = await getAllPagesInSpace(
     "Projects-d63333fedaa94636983ce971882910fe",
     undefined,
@@ -102,7 +70,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     },
   );
   const paths = Object.keys(pages).map((pageId) => `/projects/${pageId}`);
-
+  //console.log(paths)
   return {
     paths,
     fallback: true,
@@ -119,7 +87,7 @@ export const getStaticProps = async (
     props: {
       projectsRecordMap: projectsRecordMap,
     },
-    revalidate: 60,
+    revalidate: 10,
   };
 };
 

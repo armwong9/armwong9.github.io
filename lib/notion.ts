@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import glob from "fast-glob";
 import matter from "gray-matter";
-import { ExtendedRecordMap } from "notion-types/src/maps";
+import { ExtendedRecordMap } from 'notion-types';
 import { getPageTitle } from "notion-utils";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";

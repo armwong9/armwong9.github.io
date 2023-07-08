@@ -11,20 +11,17 @@ import Container from "@components/Container";
 import { NotionAPI } from "notion-client";
 
 
-import {
-  NotionRenderer,
-  NotionRendererProps,
-  Code,
-  Collection,
-  CollectionRow,
-  Equation,
-  Modal,
-} from "react-notion-x";
+import { NotionRenderer } from "react-notion-x";
+import { Code } from 'react-notion-x/build/third-party/code';
+import { Collection } from 'react-notion-x/build/third-party/collection';
+import { Equation } from 'react-notion-x/build/third-party/equation';
+import { Modal } from 'react-notion-x/build/third-party/modal';
+import { ExtendedRecordMap } from 'notion-types';
 import { getPageInfo, Page, EXPERIENCES } from "../../lib/notion";
 
 interface BlogProps {
   page: Page;
-  recordMap: NotionRendererProps["recordMap"];
+  recordMap: ExtendedRecordMap ;
 }
 
 const About: NextPage<BlogProps> = ({ page, recordMap }) => (
@@ -34,56 +31,15 @@ const About: NextPage<BlogProps> = ({ page, recordMap }) => (
       <meta property="og:title" content={page.title} />
     </Head>
     <NotionRenderer
-      fullPage
-      className="notion-container"
-      recordMap={recordMap}
-      components={{
-        image: ({
-          src,
-          alt,
-
-          height,
-          width,
-
-          className,
-          style,
-          loading,
-          decoding,
-
-          ref,
-          onLoad,
-        }: {
-          src: string;
-          alt: string;
-          height: number;
-          width: number;
-          className: string;
-          style: CSSProperties;
-          loading: string;
-          decoding: string;
-          ref: string;
-          onLoad: SyntheticEvent;
-        }) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            className={className}
-            style={style}
-            src={src}
-            ref={ref}
-            width={width}
-            height={height}
-            loading="lazy"
-            alt={alt}
-            decoding="async"
-          />
-        ),
-        collection: Collection,
-        collectionRow: CollectionRow,
-        code: Code,
-        modal: Modal,
-        equation: Equation,
-      }}
-    />
+        fullPage
+        recordMap={recordMap}
+        components={{
+          Code,
+          Collection,
+          Equation,
+          Modal
+        }}
+      />
   </Container>
 );
 
