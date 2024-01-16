@@ -25,6 +25,9 @@ export const EXPERIENCES = {
   venture_shares: {
     uri: "Venture-Shares-c7fdba618f6e4afcbbacde3917d612a7",
   },
+};
+
+export const EDUCATION = {
   berkeley: {
     uri: "University-of-California-Berkeley-cb49cc5a4a1c4dca8e652d03b9db8190",
   },
@@ -34,10 +37,6 @@ export const EXPERIENCES = {
   winchester: {
     uri: "Winchester-College-12aca678687c4fbd9cae1a7b62ac1eac",
   },
-};
-
-export const EDUCATION = {
-
 };
 
 export interface PageInfo {
