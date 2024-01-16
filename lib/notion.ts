@@ -19,6 +19,12 @@ export const EXPERIENCES = {
   harvey_mudd: {
     uri: "Harvey-Mudd-College-261f1347687940d0969e14855991528d",
   },
+  uc_berkeley: {
+    uri: "University-of-California-Berkeley-e809fa7f75be448abdbf416ffb87c8c7",
+  },
+  venture_shares: {
+    uri: "Venture-Shares-c7fdba618f6e4afcbbacde3917d612a7",
+  },
   berkeley: {
     uri: "University-of-California-Berkeley-cb49cc5a4a1c4dca8e652d03b9db8190",
   },
