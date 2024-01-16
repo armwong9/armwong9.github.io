@@ -211,10 +211,9 @@ const About = ({ experiences, education }: AboutProps): JSX.Element => (
 
 export const getStaticProps: GetStaticProps = async () => {
   const experiences = await getPosts("experiences");
-  experiences.sort((a, b) => {
-    // Compare only by orderId in reverse order
-    return b.data.orderId - a.data.orderId;
-  });
+  experiences.sort((a, b) =>
+    b.data.date.toString().localeCompare(a.data.date.toString())
+  );
 
   const education = await getPosts("education");
   education.sort((a, b) =>
