@@ -94,7 +94,7 @@ const Home = (): JSX.Element => {
         <Container maxWidth="700px" gridGap="3rem">
           <Container>
             <Text textAlign="center">
-              Arm is a Master's student interested in Statistical Learning (ML + AI) with applications in sequential data. Based in Berkeley, California.
+              Arm is a Master's student interested in Statistical Learning (ML + AI) with applications in sequential data.
             </Text>
           </Container>
         </Container>
